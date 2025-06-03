@@ -1,0 +1,3 @@
+app_attributes:
+    resource: '../src/'
+    type: attribute

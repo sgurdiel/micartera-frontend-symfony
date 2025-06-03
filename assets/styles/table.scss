@@ -1,0 +1,53 @@
+@use 'mixins';
+
+table {
+    border: none;
+    margin: 1em 0 0 0;
+    padding: 0;
+    width: 100%;
+    
+    min-width: 800px;
+    caption {
+        font-size: 1.5em;
+        margin: .5em 0 .75em;
+    }
+    tr {
+        border: 1px solid #ddd;
+        padding: .35em;
+    }
+    th, td {
+        padding: .1em;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+    td {
+        font-size: 0.8em;
+        padding: 0 6px;
+        &.noBg {
+            background-color: white;
+            border: none;   
+        }
+        &.number {
+            text-align: right;
+        }
+    }
+    th {
+        font-size: .85em;
+        color: #0a5397;
+        text-align: center;
+        font-weight: normal;
+        background-color: #f8f8f8;
+        border-bottom: 2px dotted #ddd;
+        padding: 0 6px;
+    }
+    td {
+        button, .actionItem {
+            padding: 2px 2px !important;
+        }
+    }
+    select {
+        font-size: 0.85em;
+        padding: 0 4px 0 4px;
+        font-weight: bold;
+    }
+}

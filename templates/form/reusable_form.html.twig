@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'form/theme_defaults.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('form') }}
+{% endblock %}
+
+{% block title %}{{ formTitle }}{% endblock %}
+
+{% block body %}
+{{ form_start(form, {'attr': {'class': 'centeredForm'}}) }}
+{% if formHeaderRoute is defined %}
+    <h1><a href="{{ path(formHeaderRoute) }}" class="actionItem">{{ formHeaderText is defined ? formHeaderText : 'home'|trans }}</a></h1>
+    <h2>{{ formTitle }}</h2>
+{% else %}
+    <h1>{{ formTitle }}</h1>
+{% endif %}
+    {{ form_widget(form) }}
+    <button id="cmdSubmit" name="cmdSubmit">{{ formSubmit is defined ? formSubmit : 'submit'| trans }}</button>
+{% if formFooterLinks is defined %}
+    {% for link in formFooterLinks %}
+        <a href="{{ link.href }}" class="actionItem">{{ link.text }}</a>
+    {% endfor %}
+{% endif %}
+{{ form_end(form) }}
+{% endblock %}

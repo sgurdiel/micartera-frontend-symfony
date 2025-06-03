@@ -1,0 +1,44 @@
+{% set portfolioProfitPrice = summary.getTotalProfitForecastPrice() %}
+{% if portfolioProfitPrice.getValue() >= 0 %}
+    {% set totalPercentStyle = "positivePercent" %}
+    {% set totalValueStyle = "positiveValue" %}
+    {% set totalValueSign = "+" %}
+    {% set totalPercentArrow = "M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z" %}
+{% else %}
+    {% set totalPercentStyle = "negativePercent" %}
+    {% set totalValueStyle = "negativeValue" %}
+    {% set totalValueSign = "" %}
+    {% set totalPercentArrow = "M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z" %}
+{% endif %}
+
+
+<h2>{% if summaryTitle is defined %}{{ summaryTitle | trans }}{% else %}{{ 'summary' | trans }}{% endif %}</h2>
+<table class="centered">
+    <thead>
+        <tr>
+            <td colspan="3" class="noBg">&nbsp;</td>
+            <th colspan="2" scope="colgroup">{{ 'unrealisedgainloss' | trans }}</th>
+        </tr>
+        <tr>
+            <th scope="col">{{ 'acquisition' | trans({'amount': 2}) }} {{ currencysymbol }}</th>
+            <th scope="col">{{ 'acquisitionFee' | trans({'amount': 2}) }} {{ currencysymbol }}</th>
+            <th scope="col">{{ 'market' | trans({'amount': 2}) }} {{ currencysymbol }}</th>
+            <th scope="col">{{ currencysymbol }}</th>
+            <th scope="col">&percnt;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="number">{{ include('reusables/format_number/stock.html.twig', {number: summary.getTotalAcquisitionsPrice().getValue()}) }}</td>
+            <td class="number">{{ include('reusables/format_number/decimal.html.twig', {number: summary.getTotalAcquisitionsExpenses().getValue()}) }}</td>
+            <td class="number">{{ include('reusables/format_number/stock.html.twig', {number: summary.getTotalMarketsPrice().getValue()}) }}</td>
+            <td class="number {{ totalValueStyle }}">{{ totalValueSign }}{{ include('reusables/format_number/stock.html.twig', {number: portfolioProfitPrice.getValue()}) }}</td>
+            <td class="number {{ totalPercentStyle }}">
+                {{ include('reusables/format_number/decimal.html.twig', {number: summary.getTotalProfitForecastPercentage().getValue()}) }}
+                <svg focusable="false" viewBox="0 0 24 16">
+                    <path d="{{ totalPercentArrow }}"></path>
+                </svg>
+            </td>
+        </tr>
+    </tbody>
+</table>

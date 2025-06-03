@@ -1,0 +1,11 @@
+twig:
+    file_name_pattern: '*.twig'
+
+    # Register your global variables under the globals key:
+    globals:
+        APP_RELEASE: '%env(default::APP_RELEASE)%'
+        LOCALE: '%locale%'
+
+when@test:
+    twig:
+        strict_variables: true

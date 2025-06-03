@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}MiCartera{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {{ encore_entry_link_tags('navMenu') }}
+    {% endif %}
+    {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+    <div class="pageContainer">
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {{ include('reusables/_menu.html.twig') }}
+        {% endif %}
+        <div class="body">   
+            {% for message in app.flashes('error') %}
+            <div class="flash-error">{{ message | raw }}</div>
+            {% endfor %} 
+            {% for message in app.flashes('success') %}
+            <div class="flash-success">{{ message | raw }}</div>
+            {% endfor %} 
+            {% block body %}{% endblock %}
+        </div>
+        <div class="footer">
+        ({{ APP_RELEASE }})
+        </div>
+    </div>
+</body>
+</html>

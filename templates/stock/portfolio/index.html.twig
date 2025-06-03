@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('form') }}
+    {{ encore_entry_link_tags('table') }}
+{% endblock %}
+
+{% block title %}{{ 'stockportfolio'|trans|capitalize }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'stockportfolio'|trans|capitalize }}
+
+    {% set currencysymbol = portfolio.getAccount().currency.symbol %}
+    {% set timezone = portfolio.getAccount().getTimeZone().getName() %}
+    {% set summary = portfolio.getSummary() %}
+    {% include 'stock/portfolio/summary.html.twig' %}
+
+    <h2>{{ 'detail' | trans }}</h2>
+    {% if portfolio.getHasPrevPage() and portfolio.getPage() > 0 %}
+    <a href="{{ path('stockportfolio_index') }}?page={{ portfolio.getPage()-1 }}" class="actionItem">{%trans%}previousPage{%endtrans%}</a>
+    {% else %}
+    <span class="disabledItem">{%trans%}previousPage{%endtrans%}</span>
+    {% endif %}
+    {% if portfolio.getHasNextPage() %}
+    <a href="{{ path('stockportfolio_index') }}?page={{ portfolio.getPage()+1 }}" class="actionItem">{%trans%}nextPage{%endtrans%}</a>
+    {% else %}
+    <span class="disabledItem">{%trans%}nextPage{%endtrans%}</span>
+    {% endif %}
+    <table>
+        <thead>
+            <tr>
+                <td colspan="3" class="noBg">&nbsp;</td>
+                <th colspan="2" scope="colgroup">{{ 'unitshareprice' | trans }} {{ currencysymbol }}</th>
+                <th colspan="2" scope="colgroup">{{ 'totalsharesprice'| trans }} {{ currencysymbol }}</th>
+                <td class="noBg">&nbsp;</td>
+                <th colspan="2" scope="colgroup">{{ 'unrealisedgainloss' | trans }}</th>
+                <td class="noBg">&nbsp;</td>
+            </tr>
+            <tr>
+                <th scope="col">{{ 'acquisitionDateTime' | trans }} ({{ timezone }})</th>
+                <th scope="col">{{ 'symbol' | trans }}</th>
+                <th scope="col">{{ 'shares' | trans }}</th>
+                <th scope="col">{{ 'acquisition' | trans({'amount': 1}) }}</th>
+                <th scope="col">{{ 'market' | trans }}</th>
+                <th scope="col">{{ 'acquisition' | trans({'amount': 1}) }}</th>
+                <th scope="col">{{ 'market' | trans }}</th>
+                <th scope="col">{{ 'acquisitionFee' | trans({'amount': 2}) }} {{ currencysymbol }}</th>
+                <th scope="col">{{ currencysymbol }}</th>
+                <th scope="col">&percnt;</th>
+                <th scope="col">{{ 'actions' | trans }}
+            </tr>
+        </thead>
+        <tbody>
+            {% for portfolioPosition in portfolio.getCollection() %}
+                {% if portfolio.getPositionProfitPrice(loop.index0).getValue() >= 0 %}
+                    {% set percentStyle = "positivePercent" %}
+                    {% set valueStyle = "positiveValue" %}
+                    {% set valueSign = "+" %}
+                    {% set percentArrow = "M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z" %}
+                {% else %}
+                    {% set percentStyle = "negativePercent" %}
+                    {% set valueStyle = "negativeValue" %}
+                    {% set valueSign = "" %}
+                    {% set percentArrow = "M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z" %}
+                {% endif %}
+                <tr>
+                    <td>{{ portfolioPosition.datetimeutc|date('Y M d H:i:s', timezone) }}</td>
+                    <td><a href="{{ path('stock_update', {'id': portfolioPosition.stock.getId()}) }}" class="actionItem">{{ portfolioPosition.stock.getId() }} - {{ portfolioPosition.stock.getExchange.getCode() }}</a></td>
+                    <td class="number">{{ include('reusables/format_number/transactionAmount.html.twig', {number: portfolioPosition.amountActionable.getValue()}) }}</td>
+                    <td class="number">{{ include('reusables/format_number/stock.html.twig', {number: portfolioPosition.price.value}) }}</td>
+                    <td class="number">{{ include('reusables/format_number/stock.html.twig', {number: portfolioPosition.stock.price.value}) }}</td>
+                    <td class="number">{{ include('reusables/format_number/stock.html.twig', {number: portfolio.getPositionAcquisitionPrice(loop.index0).getValue()}) }}</td>
+                    <td class="number">{{ include('reusables/format_number/stock.html.twig', {number: portfolio.getPositionMarketPrice(loop.index0).getValue()}) }}</td>
+                    <td class="number">{{ include('reusables/format_number/decimal.html.twig', {number: portfolio.getPositionAcquisitionExpenses(loop.index0).getValue()}) }}</td>
+                    <td class="number {{ valueStyle }}">
+                        {{ valueSign }}{{ include('reusables/format_number/stock.html.twig', {number: portfolio.getPositionProfitPrice(loop.index0).getValue()}) }}
+                    </td>
+                    <td class="number {{ percentStyle }}">
+                        {{ include('reusables/format_number/decimal.html.twig', {number: portfolio.getPositionProfitPercentage(loop.index0).getValue()}) }}
+                        <svg focusable="false" viewBox="0 0 24 16">
+                            <path d="{{ percentArrow }}"></path>
+                        </svg>
+                    </td>
+                    <td class="actions">
+                        <a href="{{ path('stockoperate_new', {'type': 'sell', 'stock': portfolioPosition.stock.getId()}) }}" class="actionItem">{{ 'sell' | trans }}</a>
+                        {{ include('stock/portfolio/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="11">{{ 'noRecordsFound'|trans }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

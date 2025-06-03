@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('form') }}
+    {{ encore_entry_link_tags('table') }}
+{% endblock %}
+
+{% if summary is defined %}
+    {% set title = title | capitalize ~ ': ' ~ form.vars.value.code %}
+{% else %}
+    {% set title = title | capitalize %}
+{% endif %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h2>{{ title }}</h2>
+    {% include 'reusables/_form.html.twig' %}
+{% if summary is defined %}
+    {% set currencysymbol = summary.getCurrency().symbol %}
+    {% set summaryTitle = 'gainsLosses' %}
+    {% include 'stock/portfolio/summary.html.twig' %}
+{% endif %}
+{% endblock %}

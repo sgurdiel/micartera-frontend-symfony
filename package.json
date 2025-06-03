@@ -1,0 +1,26 @@
+{
+    "devDependencies": {
+        "@babel/core": "^7.17.0",
+        "@babel/preset-env": "^7.16.0",
+        "@symfony/webpack-encore": "^5.1.0",
+        "autoprefixer": "^10.4.21",
+        "postcss": "^8.5.3",
+        "postcss-loader": "^8.1.1",
+        "sass": "^1.87.0",
+        "sass-loader": "^16.0.5",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^5.1.0",
+        "webpack-notifier": "^1.15.0"
+    },
+    "license": "AGPL-3.0-or-later",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "browserslist": [
+        "defaults"
+    ]
+}

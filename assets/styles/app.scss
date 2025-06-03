@@ -1,0 +1,118 @@
+@use 'mixins';
+@use 'fontawesome/fontawesome';
+@use 'fontawesome/solid';
+
+* {
+    font-family: "Lucida Console", "Courier new", monospace;
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+div.pageContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    div.body {
+        flex: auto;
+    }
+    div.footer {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 0.7em;
+    }
+}
+
+h1 {
+    color: #903c99;
+    text-align: center;
+    font-weight: 500;
+}
+
+h2 {
+    color: #903c99;
+    padding: 16px 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.actionItem {
+    color: #065bdb;
+    padding: 6px 6px;
+    margin: 2px 0;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: underline dotted;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    &:hover {
+        background-color: #d2e0f7;
+        border-color: #065bdb;
+    }
+}
+
+.disabledItem {
+    color: #595b5f;
+    padding: 6px 6px;
+    margin: 2px 0;
+    display: inline-block;
+    text-decoration: underline dotted;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.flash-error {
+    background-color: #fdaeae;
+    margin-left: 40px;
+    color: red;
+    text-align: center;
+    border-radius: 11px;
+    border: 1px solid red;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.flash-success {
+    background-color: #c0fdae;
+    margin-left: 40px;
+    color: green;
+    text-align: center;
+    border-radius: 11px;
+    border: 1px solid green;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.positiveValue {
+    background-color: #e6f4ea;
+    color: #137333;
+}
+.negativeValue {
+    background-color: #fce8e6;
+    color: #a50e0e;
+}
+.positivePercent {
+    background-color: #e6f4ea;
+    color: #137333;
+}
+.negativePercent {
+    background-color: #fce8e6;
+    color: #a50e0e;
+}
+.positivePercent svg, .negativePercent svg {
+    fill: currentColor;
+    width: 15px;
+    height: 15px;
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
