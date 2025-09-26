@@ -49,7 +49,7 @@ class StockControllerTest extends ApplicationTestCase
         $this->client->submit($form, $formFields);
         $this->assertRouteSame('stock_new');
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('.flash-error', self::$translator->trans('stockExists', [], 'MiCarteraBackend'));
+        $this->assertSelectorTextContains('.flash-error', self::$translator->trans('stockExists', [], 'MiCarteraDomain'));
     }
 
     #[Depends('testNewStock')]
@@ -90,7 +90,7 @@ class StockControllerTest extends ApplicationTestCase
         $this->client->submit($form, $formFields);
         $this->assertRouteSame('stock_update');
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('.flash-error', self::$translator->trans('enterNumberBetween', ['minimum' => StockPriceVO::VALUE_MIN, 'maximum' => StockPriceVO::VALUE_MAX], 'MiCarteraBackend'));
+        $this->assertSelectorTextContains('.flash-error', self::$translator->trans('enterNumberBetween', ['minimum' => StockPriceVO::VALUE_MIN, 'maximum' => StockPriceVO::VALUE_MAX], 'MiCarteraDomain'));
     }
 
     #[Depends('testUpdateStock')]
@@ -137,6 +137,6 @@ class StockControllerTest extends ApplicationTestCase
         $crawler = $this->client->submit($form);
         $this->assertResponseRedirects('/en_GB/stock', Response::HTTP_SEE_OTHER);
         $crawler = $this->client->followRedirect();
-        $this->assertSelectorTextContains('.flash-error', self::$translator->trans('stockHasTransactions', [], 'MiCarteraBackend'));
+        $this->assertSelectorTextContains('.flash-error', self::$translator->trans('stockHasTransactions', [], 'MiCarteraDomain'));
     }
 }

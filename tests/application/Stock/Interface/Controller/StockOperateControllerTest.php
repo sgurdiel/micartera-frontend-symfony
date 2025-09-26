@@ -161,7 +161,7 @@ class StockOperateControllerTest extends ApplicationTestCase
             self::$translator->trans(
                 'enterNumberBetween',
                 ['minimum' => TransactionAmountVO::VALUE_MIN, 'maximum' => TransactionAmountVO::VALUE_MAX],
-                'MiCarteraBackend'
+                'MiCarteraDomain'
             )
         );
     }
@@ -213,7 +213,7 @@ class StockOperateControllerTest extends ApplicationTestCase
             self::$translator->trans(
                 'enterNumberBetween',
                 ['minimum' => TransactionAmountVO::VALUE_MIN, 'maximum' => TransactionAmountVO::VALUE_MAX],
-                'MiCarteraBackend'
+                'MiCarteraDomain'
             )
         );
     }
@@ -235,7 +235,7 @@ class StockOperateControllerTest extends ApplicationTestCase
         $crawler = $this->client->submit($form);
         $this->assertResponseRedirects('/en_GB/stockportfolio', Response::HTTP_SEE_OTHER);
         $crawler = $this->client->followRedirect();
-        $this->assertSelectorTextContains('.flash-error', self::$translator->trans('transBuyCannotBeRemovedWithoutFullAmountOutstanding', [], 'MiCarteraBackend'));
+        $this->assertSelectorTextContains('.flash-error', self::$translator->trans('transBuyCannotBeRemovedWithoutFullAmountOutstanding', [], 'MiCarteraDomain'));
     }
 
     #[Depends('testDeleteAcquisitionThrowsDomainError')]
