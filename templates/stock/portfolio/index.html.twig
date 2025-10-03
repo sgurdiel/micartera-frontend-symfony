@@ -38,7 +38,16 @@
                 <td class="noBg">&nbsp;</td>
             </tr>
             <tr>
-                <th scope="col">{{ 'acquisitionDateTime' | trans }}<br />({{ timezone }})</th>
+                <th scope="col">
+                    <div class="colSort">
+                        <span>
+                            <svg focusable="false" viewBox="0 0 24 16">
+                                <path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"></path>
+                            </svg>
+                        </span>
+                        <span>{{ 'acquisitionDateTime' | trans }}<br />({{ timezone }})</span>
+                    </div>
+                </th>
                 <th scope="col">{{ 'symbol' | trans }}</th>
                 <th scope="col">{{ 'name' | trans }}</th>
                 <th scope="col">{{ 'shares' | trans }}</th>

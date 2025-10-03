@@ -39,6 +39,19 @@ table {
         background-color: #f8f8f8;
         border-bottom: 2px dotted #ddd;
         padding: 0 6px;
+        .colSort {
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            span {
+                flex: content
+            }
+            svg {
+                fill: currentColor;
+                width: 15px;
+                height: 15px;
+            }
+        }
     }
     td {
         button, .actionItem {
