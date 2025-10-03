@@ -202,7 +202,7 @@ final class StockOperateController extends AbstractController
 
         return $this->render('stock/form.html.twig', [
             'form' => $form,
-            'title' => 'operationsbatchimport',
+            'title' => $translator->trans('operationsbatchimport'),
         ]);
     }
 }

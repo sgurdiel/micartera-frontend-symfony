@@ -19,7 +19,7 @@
     {% include 'reusables/_form.html.twig' %}
 {% if summary is defined %}
     {% set currencysymbol = summary.getCurrency().symbol %}
-    {% set summaryTitle = 'gainsLosses' %}
+    {% set summaryTitle = 'profitLoss' %}
     {% include 'stock/portfolio/summary.html.twig' %}
 {% endif %}
 {% endblock %}

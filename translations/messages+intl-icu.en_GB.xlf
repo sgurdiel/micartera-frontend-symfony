@@ -230,6 +230,14 @@
         <source>acquire</source>
         <target>Acquire</target>
       </trans-unit>
+      <trans-unit id="profitLoss">
+        <source>profitLoss</source>
+        <target>Profit/Loss</target>
+      </trans-unit>
+      <trans-unit id="import">
+        <source>import</source>
+        <target>Import</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
