@@ -238,6 +238,10 @@
         <source>import</source>
         <target>Import</target>
       </trans-unit>
+      <trans-unit id="poweredBy">
+        <source>poweredBy</source>
+        <target>powered by</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
