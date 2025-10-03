@@ -109,7 +109,7 @@
     <table>
         <thead>
             <tr>
-                <td colspan="4" class="noBg">&nbsp;</td>
+                <td colspan="5" class="noBg">&nbsp;</td>
                 <th colspan="2" scope="colgroup">{{ 'unitshareprice'| trans }} {{ currencysymbol }}</th>
                 <th colspan="2" scope="colgroup">{{ 'totalsharesprice'| trans }} {{ currencysymbol }}</th>
                 <th colspan="2" scope="colgroup">{{ 'expenses'| trans({'amount': 2}) }} {{ currencysymbol }}</th>
@@ -117,9 +117,10 @@
                 <td class="noBg">&nbsp;</td>
             </tr>
             <tr>
-                <th scope="col">{{ 'acquisitionDateTime' | trans }} ({{ timezone.getName() }})</th>
-                <th scope="col">{{ 'liquidationDateTime' | trans }} ({{ timezone.getName() }})</th>
+                <th scope="col">{{ 'acquisitionDateTime' | trans }}<br />({{ timezone.getName() }})</th>
+                <th scope="col">{{ 'liquidationDateTime' | trans }}<br />({{ timezone.getName() }})</th>
                 <th scope="col">{{ 'symbol'| trans }}</th>
+                <th scope="col">{{ 'name'| trans }}</th>
                 <th scope="col">{{ 'shares'| trans }}</th>
                 <th scope="col">{{ 'acquisition' | trans({'amount': 1}) }}</th>
                 <th scope="col">{{ 'liquidation' | trans({'amount': 1}) }}</th>
@@ -149,6 +150,7 @@
                 <td>{{ accountingMovement.getAcquisition().datetimeutc | date('Y M d H:i:s', timezone) }}</td>
                 <td>{{ accountingMovement.getLiquidation().datetimeutc | date('Y M d H:i:s', timezone) }}</td>
                 <td><a href="{{ path('stock_update', {'id': accountingMovement.getLiquidation().getStock().getId()}) }}" class="actionItem">{{ accountingMovement.getLiquidation().getStock().getId() }} - {{ accountingMovement.getLiquidation().getStock().getExchange.getCode() }}</a></td>
+                <td>{{ accountingMovement.getLiquidation().getStock().getName() }}</td>
                 <td class="number">{{ include('reusables/format_number/transactionAmount.html.twig', {number: accountingMovement.getAmount().getValue()}) }}</td>
                 <td class="number">{{ include('reusables/format_number/stock.html.twig', {number: accountingMovement.getAcquisition().getPrice().getValue()}) }}</td>
                 <td class="number">{{ include('reusables/format_number/stock.html.twig', {number: accountingMovement.getLiquidation().getPrice().getValue()}) }}</td>
@@ -171,7 +173,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="13">{{ 'noRecordsFound'|trans }}</td>
+                <td colspan="14">{{ 'noRecordsFound'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>

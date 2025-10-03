@@ -30,7 +30,7 @@
     <table>
         <thead>
             <tr>
-                <td colspan="3" class="noBg">&nbsp;</td>
+                <td colspan="4" class="noBg">&nbsp;</td>
                 <th colspan="2" scope="colgroup">{{ 'unitshareprice' | trans }} {{ currencysymbol }}</th>
                 <th colspan="2" scope="colgroup">{{ 'totalsharesprice'| trans }} {{ currencysymbol }}</th>
                 <td class="noBg">&nbsp;</td>
@@ -38,8 +38,9 @@
                 <td class="noBg">&nbsp;</td>
             </tr>
             <tr>
-                <th scope="col">{{ 'acquisitionDateTime' | trans }} ({{ timezone }})</th>
+                <th scope="col">{{ 'acquisitionDateTime' | trans }}<br />({{ timezone }})</th>
                 <th scope="col">{{ 'symbol' | trans }}</th>
+                <th scope="col">{{ 'name' | trans }}</th>
                 <th scope="col">{{ 'shares' | trans }}</th>
                 <th scope="col">{{ 'acquisition' | trans({'amount': 1}) }}</th>
                 <th scope="col">{{ 'market' | trans }}</th>
@@ -67,6 +68,7 @@
                 <tr>
                     <td>{{ portfolioPosition.datetimeutc|date('Y M d H:i:s', timezone) }}</td>
                     <td><a href="{{ path('stock_update', {'id': portfolioPosition.stock.getId()}) }}" class="actionItem">{{ portfolioPosition.stock.getId() }} - {{ portfolioPosition.stock.getExchange.getCode() }}</a></td>
+                    <td>{{ portfolioPosition.stock.getName() }}</td>
                     <td class="number">{{ include('reusables/format_number/transactionAmount.html.twig', {number: portfolioPosition.amountActionable.getValue()}) }}</td>
                     <td class="number">{{ include('reusables/format_number/stock.html.twig', {number: portfolioPosition.price.value}) }}</td>
                     <td class="number">{{ include('reusables/format_number/stock.html.twig', {number: portfolioPosition.stock.price.value}) }}</td>
@@ -89,7 +91,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="11">{{ 'noRecordsFound'|trans }}</td>
+                    <td colspan="12">{{ 'noRecordsFound'|trans }}</td>
                 </tr>
             {% endfor %}
         </tbody>
