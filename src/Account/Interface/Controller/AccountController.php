@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Translation\TranslatableMessage;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -140,7 +140,7 @@ final class AccountController extends AbstractController
                 'formTitle' => $translator->trans('signUp', [], 'SymfonyAuthBundle'),
                 'formSubmit' => $translator->trans('signUp', [], 'SymfonyAuthBundle'),
                 'formFooterLinks' => [
-                    ['href' => $this->generateUrl('app_login'), 'text' => new TranslatableMessage('signIn', [], 'SymfonyAuthBundle')],
+                    ['href' => $this->generateUrl('app_login'), 'text' => $translator->trans('signIn', [], 'SymfonyAuthBundle')],
                 ],
             ]
         );

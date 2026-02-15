@@ -59,6 +59,15 @@ class BaseWebTest extends ApplicationTestCase
             if (self::skipRoute($route)) {
                 continue;
             }
+            if ('/healthz' === $route->getPath()) {
+                self::$pages[] = [
+                    'page' => $router->generate($controller_method_name, []),
+                    'locale' => 'en_GB',
+                    'public' => true,
+                    'redirect' => false,
+                ];
+                continue;
+            }
             $locales = explode('|', $route->getRequirement('_locale'));
             foreach ($locales as $locale) {
                 $parameters = ['_locale' => $locale];
