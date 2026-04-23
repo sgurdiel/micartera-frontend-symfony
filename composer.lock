@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c02a0521d29efa9e1465af1e10c906f2",
+    "content-hash": "a9c3b81a928f102bc1d9c73ea30d4f15",
     "packages": [
         {
             "name": "brick/math",
@@ -8408,16 +8408,16 @@
         },
         {
             "name": "xver/micartera-domain",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sgurdiel/micartera-domain.git",
-                "reference": "4bf18582a7cf5a051cffd8d16502b17e444a8c10"
+                "reference": "d0308eb83f50526b64d44e840e76375ca8b68e6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sgurdiel/micartera-domain/zipball/4bf18582a7cf5a051cffd8d16502b17e444a8c10",
-                "reference": "4bf18582a7cf5a051cffd8d16502b17e444a8c10",
+                "url": "https://api.github.com/repos/sgurdiel/micartera-domain/zipball/d0308eb83f50526b64d44e840e76375ca8b68e6b",
+                "reference": "d0308eb83f50526b64d44e840e76375ca8b68e6b",
                 "shasum": ""
             },
             "require": {
@@ -8432,12 +8432,11 @@
                 "symfony/runtime": "^8.0",
                 "symfony/uid": "^8.0",
                 "symfony/yaml": "^8.0",
-                "xver/php-app-core": "^1.0",
                 "xver/php-auth-core": "^1.0"
             },
             "require-dev": {
                 "doctrine/doctrine-fixtures-bundle": "^4.1",
-                "phpunit/phpunit": "^12.1",
+                "phpunit/phpunit": "^13.1",
                 "symfony/finder": "^8.0",
                 "vimeo/psalm": "^6.10"
             },
@@ -8469,10 +8468,10 @@
             ],
             "description": "MiCartera Domain",
             "support": {
-                "source": "https://github.com/sgurdiel/micartera-domain/tree/1.0.2",
+                "source": "https://github.com/sgurdiel/micartera-domain/tree/1.0.3",
                 "issues": "https://github.com/sgurdiel/micartera-domain/issues"
             },
-            "time": "2026-02-15T20:10:57+00:00"
+            "time": "2026-04-23T22:13:27+00:00"
         },
         {
             "name": "xver/php-app-core",
