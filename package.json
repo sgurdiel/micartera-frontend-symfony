@@ -2,20 +2,22 @@
     "devDependencies": {
         "@babel/core": "^7.17.0",
         "@babel/preset-env": "^7.16.0",
-        "@symfony/webpack-encore": "^5.1.0",
+        "@symfony/webpack-encore": "^6.0.0",
+        "core-js": "^3.38.0",
         "autoprefixer": "^10.4.21",
         "postcss": "^8.5.3",
         "postcss-loader": "^8.1.1",
+        "regenerator-runtime": "^0.14.1",
         "sass": "^1.87.0",
         "sass-loader": "^16.0.5",
-        "webpack": "^5.74.0",
+        "webpack": "^5.72",
         "webpack-cli": "^6.0.0",
         "webpack-notifier": "^1.15.0"
     },
     "license": "AGPL-3.0-or-later",
     "private": true,
     "scripts": {
-        "dev-server": "encore dev-server",
+        "update-browsers": "npx update-browserslist-db@latest",
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"

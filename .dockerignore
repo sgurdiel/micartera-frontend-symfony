@@ -1,0 +1,16 @@
+.git
+.gitignore
+.github
+.devbox
+.vscode
+.DS_Store
+.idea
+*.log
+.env.*
+devbox.d
+node_modules
+var
+vendor
+docker-compose.yml
+Dockerfile*
+README.md

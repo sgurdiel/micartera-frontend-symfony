@@ -51,10 +51,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
     
     - name: Setup devbox
-      uses: jetify-com/devbox-install-action@v0.13.0
+      uses: jetify-com/devbox-install-action@v0.15.0
       with:
         # Caching the entire Nix store in github based on your devbox.json
         enable-cache: true
@@ -64,7 +64,7 @@ jobs:
 
     - name: Cache Composer packages
       id: composer-cache
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: vendor
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}

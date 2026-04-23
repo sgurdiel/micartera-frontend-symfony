@@ -164,7 +164,7 @@ final class StockOperateController extends AbstractController
                 $userIdentifier = $this->getUser()->getUserIdentifier();
                 $command = new StockOperationImportCommand($transactionPersistence, $accountPersistence, $stockPersistence);
                 $lineNumber = 1;
-                while (is_array($line = fgetcsv($fp))) {
+                while (is_array($line = fgetcsv($fp,null,',','"','\\'))) {
                     $numCols = count($line);
                     if (6 != $numCols) {
                         throw new DomainViolationException(

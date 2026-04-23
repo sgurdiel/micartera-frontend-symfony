@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}MiCartera{% endblock %}</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-    {% block stylesheets %}
-        {{ encore_entry_link_tags('app') }}
-    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-        {{ encore_entry_link_tags('navMenu') }}
-    {% endif %}
-    {% endblock %}
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-    {% endblock %}
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}MiCartera{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            {{ encore_entry_link_tags('navMenu') }}
+        {% endif %}
+        {% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
 <body>
     <div class="pageContainer">
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
