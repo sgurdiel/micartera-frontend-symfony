@@ -58,6 +58,12 @@ jobs:
       with:
         # Caching the entire Nix store in github based on your devbox.json
         enable-cache: true
+    
+    - name: Setup mise
+      uses: jdx/mise-action@v4
+      with:
+        install: true
+        cache: true
 
     - name: Validate composer.json and composer.lock
       run: devbox run composer validate --strict
@@ -82,13 +88,20 @@ jobs:
         devbox run bin/console doctrine:fixtures:load --no-interaction --env=test || echo "Fixtures load failed"
 
     - name: Install NPM dependencies
-      run: devbox run npm install
+      run: npm ci
 
     - name: NPM Build
-      run: devbox run npm run build
+      run: npm run build
 
     - name: Run all test suites
       run: devbox run vendor/bin/phpunit --testsuite=all --coverage-text
        
     - name: Psalm static code analysis
       run: devbox run vendor/bin/psalm
+
+    - name: Build Docker image
+      run: |
+        set -a
+        . ./versions.env
+        set +a
+        docker build --build-arg RELEASE_NODE .

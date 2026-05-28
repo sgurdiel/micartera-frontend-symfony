@@ -250,15 +250,22 @@ class StockOperateControllerTest extends ApplicationTestCase
         // retrieve the Form object for the form belonging to this button
         $form = $buttonCrawlerNode->form();
 
-        // submit the Form object
+        // submit the Form object to delete liquidation
         $this->client->setServerParameter('HTTP_REFERER', '');
         $crawler = $this->client->submit($form);
         $this->assertResponseRedirects('/en_GB/stockaccounting', Response::HTTP_SEE_OTHER);
         $crawler = $this->client->followRedirect();
         $this->assertSelectorTextContains('.flash-success', self::$translator->trans('actionCompletedSuccessfully'));
 
-        // submit the Form object to delete remaining liquidation
-        // select the button
+        // submit the Form object to delete liquidation
+        $buttonCrawlerNode = $crawler->selectButton('cmdDelete_0');
+        $form = $buttonCrawlerNode->form();
+        $crawler = $this->client->submit($form);
+        $this->assertResponseRedirects('/en_GB/stockaccounting', Response::HTTP_SEE_OTHER);
+        $crawler = $this->client->followRedirect();
+        $this->assertSelectorTextContains('.flash-success', self::$translator->trans('actionCompletedSuccessfully'));
+
+        // submit the Form object to delete last liquidation
         $buttonCrawlerNode = $crawler->selectButton('cmdDelete_0');
         $form = $buttonCrawlerNode->form();
         $crawler = $this->client->submit($form);

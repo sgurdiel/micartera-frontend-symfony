@@ -2,19 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.14.2/.schema/devbox.schema.json",
   "env": {
     "PHPFPM_PORT":                 "8081",
-    "PHP_CS_FIXER_IGNORE_ENV":     "true",
-    "OTEL_PHP_AUTOLOAD_ENABLED":   "false",
-    "OTEL_SERVICE_NAME":           "xver/micartera-frontend-symfony-dev",
-    "OTEL_TRACES_EXPORTER":        "otlp",
-    "OTEL_EXPORTER_OTLP_PROTOCOL": "http/json",
-    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://otel-collector.otel.svc.cluster.local.:4318",
-    "OTEL_PROPAGATORS":            "baggage,tracecontext"
+    "PHP_CS_FIXER_IGNORE_ENV":     "true"
   },
   "packages": [
-    "php@8.4.20",
+    "php@8.4.21",
     "php84Extensions.xdebug@latest",
-    "php84Extensions.opentelemetry@latest",
-    "nodejs@24.12.0"
+    "php84Extensions.opentelemetry@latest"
   ],
   "shell": {
     "init_hook": [

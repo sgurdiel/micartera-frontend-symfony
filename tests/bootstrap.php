@@ -5,8 +5,11 @@ use Xver\MiCartera\Frontend\Symfony\Kernel;
 
 require dirname(__DIR__).'/vendor/autoload.php';
 
+$dotenv = new Dotenv();
+$dotenv->load(dirname(__DIR__).'/versions.env');
+
 if (method_exists(Dotenv::class, 'bootEnv')) {
-    (new Dotenv())->bootEnv(dirname(__DIR__).'/.env');
+    $dotenv->bootEnv(dirname(__DIR__).'/.env');
 }
 
 if ($_SERVER['APP_DEBUG']) {
