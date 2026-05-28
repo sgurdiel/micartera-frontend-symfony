@@ -58,8 +58,6 @@ class StockOperateControllerTest extends ApplicationTestCase
 
     public function testFromCsv(): void
     {
-        self::$loadFixtures = true;
-
         // Create temp file
         $filePath = '/tmp/micartera.csv';
 
@@ -84,6 +82,7 @@ class StockOperateControllerTest extends ApplicationTestCase
         $formFields = [
             $formName.'[csv]' => $file,
         ];
+        fclose($fp);
         $this->client->submit($form, $formFields);
         $this->assertResponseRedirects('/en_GB/stock', Response::HTTP_SEE_OTHER);
         $crawler = $this->client->followRedirect();
