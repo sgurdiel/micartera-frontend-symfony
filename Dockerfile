@@ -1,5 +1,8 @@
-ARG BASE_OCI_IMAGE=php:8.4.19-fpm-alpine
-ARG HELPER_OCI_IMAGE1=node:24.12.0-alpine
+ARG RELEASE_PHP=8.4.21
+ARG BASE_OCI_IMAGE=php:${RELEASE_PHP}-fpm-alpine
+
+ARG RELEASE_NODE=24.16.0
+ARG HELPER_OCI_IMAGE=node:${RELEASE_NODE}-alpine
 
 ############################
 # PHP extension build stage
@@ -48,7 +51,7 @@ RUN composer dump-autoload \
 ############################
 # Node deps stage
 ############################
-FROM ${HELPER_OCI_IMAGE1} AS depsnode
+FROM ${HELPER_OCI_IMAGE} AS depsnode
 WORKDIR /var/www/html
 
 COPY package*.json ./
@@ -57,7 +60,7 @@ RUN npm ci
 ############################
 # Node build stage
 ############################
-FROM ${HELPER_OCI_IMAGE1} AS buildnode
+FROM ${HELPER_OCI_IMAGE} AS buildnode
 WORKDIR /var/www/html
 
 COPY --from=depsnode /var/www/html/node_modules ./node_modules
@@ -87,8 +90,6 @@ COPY --from=buildnode /var/www/html/public/build ./public/build
 RUN chown -R www-data:www-data /var/www/html
 
 USER www-data
-ENV APP_ENV=prod
-ENV APP_DEBUG=0
 
 EXPOSE 9000
 CMD ["php-fpm", "-F"]

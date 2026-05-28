@@ -21,14 +21,33 @@ permissions:
   contents: read
 
 jobs:
+  load-versions:
+    name: Load runtime versions
+    runs-on: ubuntu-latest
+    outputs:
+      release_mysql: ${{ steps.set-outputs.outputs.release_mysql }}
+      release_node: ${{ steps.set-outputs.outputs.release_node }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Read versions.env
+        id: set-outputs
+        run: |
+          release_mysql=$(grep -E '^RELEASE_MYSQL=' versions.env | cut -d'=' -f2- | tr -d '\r')
+          release_node=$(grep -E '^RELEASE_NODE=' versions.env | cut -d'=' -f2- | tr -d '\r')
+          echo "release_mysql=$release_mysql" >> "$GITHUB_OUTPUT"
+          echo "release_node=$release_node" >> "$GITHUB_OUTPUT"
+
   build:
     name: micartera-frontend-symfony
+    needs: load-versions
 
     runs-on: ubuntu-latest
 
     services:
       mysql:
-        image: mysql:8.4.4
+        image: mysql:${{ needs.load-versions.outputs.release_mysql }}
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: false
           MYSQL_ROOT_PASSWORD: password
@@ -38,16 +57,18 @@ jobs:
           - 3306:3306/tcp
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
-    strategy:
-      fail-fast: false
-
     env:
+      RELEASE_MYSQL: ${{ needs.load-versions.outputs.release_mysql }}
+      RELEASE_NODE: ${{ needs.load-versions.outputs.release_node }}
       APP_ENV: test
       APP_RELEASE: test
       APP_SECRET: kv95njkb5t90v89jtrbjh3bvdv
-      DATABASE_URL: mysql://root:password@127.0.0.1:3306/micartera?serverVersion=8.4
+      DATABASE_URL: mysql://root:password@127.0.0.1:3306/micartera?serverVersion=${{ needs.load-versions.outputs.release_mysql }}
       TRUSTED_PROXIES:
       SYMFONY_DEPRECATIONS_HELPER: disabled=1
+
+    strategy:
+      fail-fast: false
 
     steps:
     - name: Checkout code
@@ -58,6 +79,12 @@ jobs:
       with:
         # Caching the entire Nix store in github based on your devbox.json
         enable-cache: true
+    
+    - name: Setup mise
+      uses: jdx/mise-action@v4
+      with:
+        install: true
+        cache: true
 
     - name: Validate composer.json and composer.lock
       run: devbox run composer validate --strict
@@ -82,13 +109,20 @@ jobs:
         devbox run bin/console doctrine:fixtures:load --no-interaction --env=test || echo "Fixtures load failed"
 
     - name: Install NPM dependencies
-      run: devbox run npm install
+      run: npm ci
 
     - name: NPM Build
-      run: devbox run npm run build
+      run: npm run build
 
     - name: Run all test suites
       run: devbox run vendor/bin/phpunit --testsuite=all --coverage-text
        
     - name: Psalm static code analysis
       run: devbox run vendor/bin/psalm
+
+    - name: Build Docker image
+      run: |
+        set -a
+        . ./versions.env
+        set +a
+        docker build --build-arg RELEASE_NODE .
