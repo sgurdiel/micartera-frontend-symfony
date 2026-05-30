@@ -90,6 +90,8 @@ COPY --from=buildnode /var/www/html/public/build ./public/build
 RUN chown -R www-data:www-data /var/www/html
 
 USER www-data
+ENV APP_ENV=prod
+ENV APP_DEBUG=0
 
 EXPOSE 9000
 CMD ["php-fpm", "-F"]

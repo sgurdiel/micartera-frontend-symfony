@@ -5,9 +5,9 @@
     "PHP_CS_FIXER_IGNORE_ENV":     "true"
   },
   "packages": [
-    "php@8.4.21",
-    "php84Extensions.xdebug@latest",
-    "php84Extensions.opentelemetry@latest"
+    "php@8.5.6",
+    "php85Extensions.xdebug@3.5.1",
+    "php85Extensions.opentelemetry@latest"
   ],
   "shell": {
     "init_hook": [

@@ -15,7 +15,7 @@
         }
     },
     "require":  {
-        "php": "^8.4",
+        "php": "^8.5",
         "ext-opentelemetry": "*",
         "nyholm/psr7": "^1.8",
         "open-telemetry/api": "^1.2",
@@ -25,24 +25,24 @@
         "open-telemetry/sem-conv": "^1.30",
         "phpdocumentor/reflection-docblock": "^6.0",
         "phpstan/phpdoc-parser": "^2.1",
-        "symfony/console": "^8.0",
-        "symfony/dotenv": "^8.0",
+        "symfony/console": "^8.1",
+        "symfony/dotenv": "^8.1",
         "symfony/flex": "^2.5",
-        "symfony/form": "^8.0",
-        "symfony/framework-bundle": "^8.0",
-        "symfony/http-client": "^8.0",
-        "symfony/mime": "^8.0",
+        "symfony/form": "^8.1",
+        "symfony/framework-bundle": "^8.1",
+        "symfony/http-client": "^8.1",
+        "symfony/mime": "^8.1",
         "symfony/monolog-bundle": "^4.0",
-        "symfony/property-access": "^8.0",
-        "symfony/property-info": "^8.0",
-        "symfony/runtime": "^8.0",
-        "symfony/security-bundle": "^8.0",
-        "symfony/serializer": "^8.0",
-        "symfony/translation": "^8.0",
-        "symfony/twig-bundle": "^8.0",
-        "symfony/validator": "^8.0",
+        "symfony/property-access": "^8.1",
+        "symfony/property-info": "^8.1",
+        "symfony/runtime": "^8.1",
+        "symfony/security-bundle": "^8.1",
+        "symfony/serializer": "^8.1",
+        "symfony/translation": "^8.1",
+        "symfony/twig-bundle": "^8.1",
+        "symfony/validator": "^8.1",
         "symfony/webpack-encore-bundle": "^2.2",
-        "symfony/yaml": "^8.0",
+        "symfony/yaml": "^8.1",
         "twig/extra-bundle": "^3.21",
         "twig/intl-extra": "^3.21",
         "xver/micartera-domain": "^1.0"
@@ -50,11 +50,11 @@
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^4.1",
         "phpunit/phpunit": "^13.1",
-        "symfony/browser-kit": "^8.0",
-        "symfony/css-selector": "^8.0",
-        "symfony/debug-bundle": "^8.0",
-        "symfony/stopwatch": "^8.0",
-        "symfony/web-profiler-bundle": "^8.0",
+        "symfony/browser-kit": "^8.1",
+        "symfony/css-selector": "^8.1",
+        "symfony/debug-bundle": "^8.1",
+        "symfony/stopwatch": "^8.1",
+        "symfony/web-profiler-bundle": "^8.1",
         "vimeo/psalm": "^6.10"
     },
     "config": {
@@ -81,19 +81,5 @@
         "post-update-cmd": [
             "@auto-scripts"
         ]
-    },
-    "repositories":[
-        {
-            "type": "vcs",
-            "url": "https://github.com/sgurdiel/php-app-core.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/sgurdiel/php-auth-core.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/sgurdiel/micartera-domain.git"
-        }
-    ]
+    }
 }
