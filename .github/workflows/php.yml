@@ -25,6 +25,7 @@ jobs:
     name: Load runtime versions
     runs-on: ubuntu-latest
     outputs:
+      release_php: ${{ steps.set-outputs.outputs.release_php }}
       release_mysql: ${{ steps.set-outputs.outputs.release_mysql }}
       release_node: ${{ steps.set-outputs.outputs.release_node }}
     steps:
@@ -34,8 +35,10 @@ jobs:
       - name: Read versions.env
         id: set-outputs
         run: |
+          release_php=$(grep -E '^RELEASE_PHP=' versions.env | cut -d'=' -f2- | tr -d '\r')
           release_mysql=$(grep -E '^RELEASE_MYSQL=' versions.env | cut -d'=' -f2- | tr -d '\r')
           release_node=$(grep -E '^RELEASE_NODE=' versions.env | cut -d'=' -f2- | tr -d '\r')
+          echo "release_php=$release_php" >> "$GITHUB_OUTPUT"
           echo "release_mysql=$release_mysql" >> "$GITHUB_OUTPUT"
           echo "release_node=$release_node" >> "$GITHUB_OUTPUT"
 
@@ -58,6 +61,7 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     env:
+      RELEASE_PHP: ${{ needs.load-versions.outputs.release_php }}
       RELEASE_MYSQL: ${{ needs.load-versions.outputs.release_mysql }}
       RELEASE_NODE: ${{ needs.load-versions.outputs.release_node }}
       APP_ENV: test
@@ -125,4 +129,4 @@ jobs:
         set -a
         . ./versions.env
         set +a
-        docker build --build-arg RELEASE_NODE .
+        docker build --build-arg RELEASE_PHP --build-arg RELEASE_NODE .
