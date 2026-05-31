@@ -17,7 +17,7 @@ RUN set -eux; \
         libzip-dev \
         oniguruma-dev; \
     pecl install opentelemetry protobuf; \
-    docker-php-ext-enable opcache opentelemetry protobuf; \
+    docker-php-ext-enable opentelemetry protobuf; \
     docker-php-ext-install -j"$(nproc)" \
         bcmath \
         intl \
