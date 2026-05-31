@@ -7,4 +7,12 @@
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
+    <issueHandlers>
+        <!-- PHP's #[\Override] is invalid for Symfony's private trait hook in Kernel::getAllowedEnvs(). -->
+        <MissingOverrideAttribute>
+            <errorLevel type="suppress">
+                <file name="src/Kernel.php" />
+            </errorLevel>
+        </MissingOverrideAttribute>
+    </issueHandlers>
 </psalm>
