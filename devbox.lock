@@ -101,52 +101,52 @@
         }
       }
     },
-    "php@8.5.6": {
-      "last_modified": "2026-05-21T08:15:18Z",
+    "php@8.5.7": {
+      "last_modified": "2026-06-08T15:01:26Z",
       "plugin_version": "0.0.3",
-      "resolved": "github:NixOS/nixpkgs/4a29d733e8a7d5b824c3d8c958a946a9867b3eb2#php85",
+      "resolved": "github:NixOS/nixpkgs/8c3cede7ddc26bd659d2d383b5610efbd2c7a16e#php85",
       "source": "devbox-search",
-      "version": "8.5.6",
+      "version": "8.5.7",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/1ksqmhhahxq3nrrsy9z1z9bbvx748bxf-php-with-extensions-8.5.6",
+              "path": "/nix/store/my39nwm9kz8jia10j628hp46xrdjx2iy-php-with-extensions-8.5.7",
               "default": true
             }
           ],
-          "store_path": "/nix/store/1ksqmhhahxq3nrrsy9z1z9bbvx748bxf-php-with-extensions-8.5.6"
+          "store_path": "/nix/store/my39nwm9kz8jia10j628hp46xrdjx2iy-php-with-extensions-8.5.7"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/0jp8n7pwijlwri02mxh236w7r39x8d0k-php-with-extensions-8.5.6",
+              "path": "/nix/store/gcjk17fxfdbr1v5mnh4vblpa0n1bx0ma-php-with-extensions-8.5.7",
               "default": true
             }
           ],
-          "store_path": "/nix/store/0jp8n7pwijlwri02mxh236w7r39x8d0k-php-with-extensions-8.5.6"
+          "store_path": "/nix/store/gcjk17fxfdbr1v5mnh4vblpa0n1bx0ma-php-with-extensions-8.5.7"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/3wz5q3ni98ng8wip73hwnbk0c44kpwhy-php-with-extensions-8.5.6",
+              "path": "/nix/store/fwlcrrv8bz79y462rcv8smh18fj77nzc-php-with-extensions-8.5.7",
               "default": true
             }
           ],
-          "store_path": "/nix/store/3wz5q3ni98ng8wip73hwnbk0c44kpwhy-php-with-extensions-8.5.6"
+          "store_path": "/nix/store/fwlcrrv8bz79y462rcv8smh18fj77nzc-php-with-extensions-8.5.7"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/lh71rn4mvkpw61gg927k6m3brhrrkaqm-php-with-extensions-8.5.6",
+              "path": "/nix/store/6vmbc3dqicx2jkp3vl0whmx00zbsz58x-php-with-extensions-8.5.7",
               "default": true
             }
           ],
-          "store_path": "/nix/store/lh71rn4mvkpw61gg927k6m3brhrrkaqm-php-with-extensions-8.5.6"
+          "store_path": "/nix/store/6vmbc3dqicx2jkp3vl0whmx00zbsz58x-php-with-extensions-8.5.7"
         }
       }
     }
