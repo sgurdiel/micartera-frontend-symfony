@@ -385,16 +385,16 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "3.2.3",
+            "version": "3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "9670526ce9a8512c207da3ea4a8103127369f602"
+                "reference": "75f1bf75d0ba099f23e7d43ebd804df5bec58c29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/9670526ce9a8512c207da3ea4a8103127369f602",
-                "reference": "9670526ce9a8512c207da3ea4a8103127369f602",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/75f1bf75d0ba099f23e7d43ebd804df5bec58c29",
+                "reference": "75f1bf75d0ba099f23e7d43ebd804df5bec58c29",
                 "shasum": ""
             },
             "require": {
@@ -481,7 +481,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/DoctrineBundle/issues",
-                "source": "https://github.com/doctrine/DoctrineBundle/tree/3.2.3"
+                "source": "https://github.com/doctrine/DoctrineBundle/tree/3.2.4"
             },
             "funding": [
                 {
@@ -497,7 +497,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-26T19:29:54+00:00"
+            "time": "2026-06-09T19:11:55+00:00"
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
@@ -5419,16 +5419,16 @@
         },
         {
             "name": "symfony/polyfill-deepclone",
-            "version": "v1.37.0",
+            "version": "v1.40.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-deepclone.git",
-                "reference": "2ca9e9e75ead5174f2b44613a646bdc9338b8eb4"
+                "reference": "dca4ccba5f360070b574414dce4c1e7a559844fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-deepclone/zipball/2ca9e9e75ead5174f2b44613a646bdc9338b8eb4",
-                "reference": "2ca9e9e75ead5174f2b44613a646bdc9338b8eb4",
+                "url": "https://api.github.com/repos/symfony/polyfill-deepclone/zipball/dca4ccba5f360070b574414dce4c1e7a559844fa",
+                "reference": "dca4ccba5f360070b574414dce4c1e7a559844fa",
                 "shasum": ""
             },
             "require": {
@@ -5482,7 +5482,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-deepclone/tree/v1.37.0"
+                "source": "https://github.com/symfony/polyfill-deepclone/tree/v1.40.0"
             },
             "funding": [
                 {
@@ -5502,7 +5502,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-04-26T13:03:27+00:00"
+            "time": "2026-06-12T07:27:17+00:00"
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
@@ -5848,16 +5848,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.38.1",
+            "version": "v1.38.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "14c5439eec4ccff081ac14eca2dc57feb2a66d92"
+                "reference": "d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/14c5439eec4ccff081ac14eca2dc57feb2a66d92",
-                "reference": "14c5439eec4ccff081ac14eca2dc57feb2a66d92",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6",
+                "reference": "d3d318bad5e7a1bfbd026009c8bfb8d8f99ae6b6",
                 "shasum": ""
             },
             "require": {
@@ -5909,7 +5909,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.38.1"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.38.2"
             },
             "funding": [
                 {
@@ -5929,7 +5929,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-26T12:51:13+00:00"
+            "time": "2026-05-27T06:59:30+00:00"
         },
         {
             "name": "symfony/polyfill-php82",
@@ -8555,16 +8555,16 @@
         },
         {
             "name": "xver/micartera-domain",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sgurdiel/micartera-domain.git",
-                "reference": "aa410071f18c64e1283a78523e040ac27b79bbdf"
+                "reference": "ff6bf8e5949fe33834aa02ba58bc2879d20e4a3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sgurdiel/micartera-domain/zipball/aa410071f18c64e1283a78523e040ac27b79bbdf",
-                "reference": "aa410071f18c64e1283a78523e040ac27b79bbdf",
+                "url": "https://api.github.com/repos/sgurdiel/micartera-domain/zipball/ff6bf8e5949fe33834aa02ba58bc2879d20e4a3e",
+                "reference": "ff6bf8e5949fe33834aa02ba58bc2879d20e4a3e",
                 "shasum": ""
             },
             "require": {
@@ -8600,27 +8600,27 @@
             "description": "MiCartera Domain",
             "support": {
                 "issues": "https://github.com/sgurdiel/micartera-domain/issues",
-                "source": "https://github.com/sgurdiel/micartera-domain/tree/1.0.4"
+                "source": "https://github.com/sgurdiel/micartera-domain/tree/1.0.5"
             },
-            "time": "2026-05-30T20:44:26+00:00"
+            "time": "2026-06-13T19:15:37+00:00"
         },
         {
             "name": "xver/php-app-core",
-            "version": "1.0.6",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sgurdiel/php-app-core.git",
-                "reference": "ce8f895e922223d93d694c3893a0aa07a3ce8cc7"
+                "reference": "d5d5fa62aaad6eb0b80db1a852b8cd635b02ff13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sgurdiel/php-app-core/zipball/ce8f895e922223d93d694c3893a0aa07a3ce8cc7",
-                "reference": "ce8f895e922223d93d694c3893a0aa07a3ce8cc7",
+                "url": "https://api.github.com/repos/sgurdiel/php-app-core/zipball/d5d5fa62aaad6eb0b80db1a852b8cd635b02ff13",
+                "reference": "d5d5fa62aaad6eb0b80db1a852b8cd635b02ff13",
                 "shasum": ""
             },
             "require": {
                 "doctrine/collections": "^2.2 || ^3.0",
-                "php": "^8.4",
+                "php": "^8.5",
                 "symfony/http-kernel": "^8.1",
                 "symfony/translation": "^8.1"
             },
@@ -8643,22 +8643,22 @@
             "description": "Provides a PHP skeleton for developing new apps",
             "support": {
                 "issues": "https://github.com/sgurdiel/php-app-core/issues",
-                "source": "https://github.com/sgurdiel/php-app-core/tree/1.0.6"
+                "source": "https://github.com/sgurdiel/php-app-core/tree/1.0.8"
             },
-            "time": "2026-05-30T18:12:40+00:00"
+            "time": "2026-06-13T19:04:37+00:00"
         },
         {
             "name": "xver/php-auth-core",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sgurdiel/php-auth-core.git",
-                "reference": "bf537fad7252218a261c9eed5e54744711b036d4"
+                "reference": "a0b818c521eb4b1946664d3d72db8484bfab72a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sgurdiel/php-auth-core/zipball/bf537fad7252218a261c9eed5e54744711b036d4",
-                "reference": "bf537fad7252218a261c9eed5e54744711b036d4",
+                "url": "https://api.github.com/repos/sgurdiel/php-auth-core/zipball/a0b818c521eb4b1946664d3d72db8484bfab72a2",
+                "reference": "a0b818c521eb4b1946664d3d72db8484bfab72a2",
                 "shasum": ""
             },
             "require": {
@@ -8668,7 +8668,7 @@
                 "symfony/translation": "^8.1",
                 "symfony/uid": "^8.1",
                 "symfony/validator": "^8.1",
-                "xver/php-app-core": "^1.0.6"
+                "xver/php-app-core": "^1.0.8"
             },
             "require-dev": {
                 "phpunit/phpunit": "^13.1",
@@ -8693,9 +8693,9 @@
             "description": "Provides Authentication",
             "support": {
                 "issues": "https://github.com/sgurdiel/php-auth-core/issues",
-                "source": "https://github.com/sgurdiel/php-auth-core/tree/1.0.5"
+                "source": "https://github.com/sgurdiel/php-auth-core/tree/1.0.6"
             },
-            "time": "2026-05-30T20:04:42+00:00"
+            "time": "2026-06-13T19:09:33+00:00"
         }
     ],
     "packages-dev": [
@@ -9518,28 +9518,29 @@
         },
         {
             "name": "composer/pcre",
-            "version": "3.3.2",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/pcre.git",
-                "reference": "b2bed4734f0cc156ee1fe9c0da2550420d99a21e"
+                "reference": "d5a341b3fb61f3001970940afb1d332968a183ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/pcre/zipball/b2bed4734f0cc156ee1fe9c0da2550420d99a21e",
-                "reference": "b2bed4734f0cc156ee1fe9c0da2550420d99a21e",
+                "url": "https://api.github.com/repos/composer/pcre/zipball/d5a341b3fb61f3001970940afb1d332968a183ed",
+                "reference": "d5a341b3fb61f3001970940afb1d332968a183ed",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4 || ^8.0"
             },
             "conflict": {
-                "phpstan/phpstan": "<1.11.10"
+                "phpstan/phpstan": "<2.2.2"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.12 || ^2",
-                "phpstan/phpstan-strict-rules": "^1 || ^2",
-                "phpunit/phpunit": "^8 || ^9"
+                "phpstan/phpstan": "^2",
+                "phpstan/phpstan-deprecation-rules": "^2",
+                "phpstan/phpstan-strict-rules": "^2",
+                "phpunit/phpunit": "^9"
             },
             "type": "library",
             "extra": {
@@ -9577,7 +9578,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/pcre/issues",
-                "source": "https://github.com/composer/pcre/tree/3.3.2"
+                "source": "https://github.com/composer/pcre/tree/3.4.0"
             },
             "funding": [
                 {
@@ -9587,13 +9588,9 @@
                 {
                     "url": "https://github.com/composer",
                     "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
                 }
             ],
-            "time": "2024-11-12T16:29:46+00:00"
+            "time": "2026-06-07T11:47:49+00:00"
         },
         {
             "name": "composer/xdebug-handler",
@@ -10611,16 +10608,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "14.2.1",
+            "version": "14.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "ed4f43a9a69d6be9f92d50397044ccb862bd8133"
+                "reference": "10d7da3628a99289cdf4c662dd7f0d73f1baec83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ed4f43a9a69d6be9f92d50397044ccb862bd8133",
-                "reference": "ed4f43a9a69d6be9f92d50397044ccb862bd8133",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/10d7da3628a99289cdf4c662dd7f0d73f1baec83",
+                "reference": "10d7da3628a99289cdf4c662dd7f0d73f1baec83",
                 "shasum": ""
             },
             "require": {
@@ -10677,7 +10674,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/14.2.1"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/14.2.2"
             },
             "funding": [
                 {
@@ -10697,7 +10694,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-07T09:07:04+00:00"
+            "time": "2026-06-08T11:50:38+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
