@@ -3,6 +3,7 @@ ARG BASE_OCI_IMAGE=php:${RELEASE_PHP}-fpm-alpine
 
 ARG RELEASE_NODE=24.16.0
 ARG HELPER_OCI_IMAGE=node:${RELEASE_NODE}-alpine
+ARG RELEASE_OPENTELEMETRY=1.3.1
 
 ############################
 # PHP extension build stage
@@ -16,7 +17,8 @@ RUN set -eux; \
         icu-dev \
         libzip-dev \
         oniguruma-dev; \
-    pecl install opentelemetry protobuf; \
+    pecl channel-update pecl.php.net; \
+    pecl install opentelemetry-${RELEASE_OPENTELEMETRY} protobuf; \
     docker-php-ext-enable opentelemetry protobuf; \
     docker-php-ext-install -j"$(nproc)" \
         bcmath \
