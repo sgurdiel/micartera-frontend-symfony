@@ -9,6 +9,7 @@ ARG RELEASE_OPENTELEMETRY=1.3.1
 # PHP extension build stage
 ############################
 FROM ${BASE_OCI_IMAGE} AS php-ext-build
+ARG RELEASE_OPENTELEMETRY
 WORKDIR /var/www/html
 
 RUN set -eux; \
