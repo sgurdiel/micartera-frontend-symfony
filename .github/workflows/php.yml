@@ -28,6 +28,7 @@ jobs:
       release_php: ${{ steps.set-outputs.outputs.release_php }}
       release_mysql: ${{ steps.set-outputs.outputs.release_mysql }}
       release_node: ${{ steps.set-outputs.outputs.release_node }}
+      release_opentelemetry: ${{ steps.set-outputs.outputs.release_opentelemetry }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -38,9 +39,11 @@ jobs:
           release_php=$(grep -E '^RELEASE_PHP=' versions.env | cut -d'=' -f2- | tr -d '\r')
           release_mysql=$(grep -E '^RELEASE_MYSQL=' versions.env | cut -d'=' -f2- | tr -d '\r')
           release_node=$(grep -E '^RELEASE_NODE=' versions.env | cut -d'=' -f2- | tr -d '\r')
+          release_opentelemetry=$(grep -E '^RELEASE_OPENTELEMETRY=' versions.env | cut -d'=' -f2- | tr -d '\r')
           echo "release_php=$release_php" >> "$GITHUB_OUTPUT"
           echo "release_mysql=$release_mysql" >> "$GITHUB_OUTPUT"
           echo "release_node=$release_node" >> "$GITHUB_OUTPUT"
+          echo "release_opentelemetry=$release_opentelemetry" >> "$GITHUB_OUTPUT"
 
   build:
     name: micartera-frontend-symfony
@@ -64,6 +67,7 @@ jobs:
       RELEASE_PHP: ${{ needs.load-versions.outputs.release_php }}
       RELEASE_MYSQL: ${{ needs.load-versions.outputs.release_mysql }}
       RELEASE_NODE: ${{ needs.load-versions.outputs.release_node }}
+      RELEASE_OPENTELEMETRY: ${{ needs.load-versions.outputs.release_opentelemetry }}
       APP_ENV: test
       APP_RELEASE: test
       APP_SECRET: kv95njkb5t90v89jtrbjh3bvdv
@@ -129,4 +133,4 @@ jobs:
         set -a
         . ./versions.env
         set +a
-        docker build --build-arg RELEASE_PHP --build-arg RELEASE_NODE .
+        docker build --build-arg RELEASE_PHP --build-arg RELEASE_NODE --build-arg RELEASE_OPENTELEMETRY .
