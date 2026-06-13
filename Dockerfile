@@ -10,23 +10,18 @@ ARG RELEASE_OPENTELEMETRY=1.3.1
 ############################
 FROM ${BASE_OCI_IMAGE} AS php-ext-build
 ARG RELEASE_OPENTELEMETRY
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 WORKDIR /var/www/html
 
 RUN set -eux; \
-    apk add --no-cache --virtual .build-deps \
-        $PHPIZE_DEPS \
-        icu-dev \
-        libzip-dev \
-        oniguruma-dev; \
-    pecl channel-update pecl.php.net; \
-    pecl install opentelemetry-${RELEASE_OPENTELEMETRY} protobuf; \
-    docker-php-ext-enable opentelemetry protobuf; \
-    docker-php-ext-install -j"$(nproc)" \
+    install-php-extensions \
         bcmath \
         intl \
         mbstring \
-        pdo_mysql; \
-    rm -rf /tmp/pear
+        pdo_mysql \
+        opentelemetry-php/ext-opentelemetry@${RELEASE_OPENTELEMETRY} \
+        protobuf; \
+    php --ri opentelemetry > /dev/null
 
 ############################
 # Composer vendor stage
