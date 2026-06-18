@@ -31,7 +31,7 @@ jobs:
       release_opentelemetry: ${{ steps.set-outputs.outputs.release_opentelemetry }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Read versions.env
         id: set-outputs
@@ -80,7 +80,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
     
     - name: Setup devbox
       uses: jetify-com/devbox-install-action@v0.15.0
