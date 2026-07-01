@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     plugins: {
         // include whatever plugins you want
         // but make sure you install these via yarn or npm!
@@ -6,4 +6,4 @@ module.exports = {
         // add browserslist config to package.json (see below)
         autoprefixer: {}
     }
-}
+};
