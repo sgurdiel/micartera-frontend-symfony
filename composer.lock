@@ -8558,16 +8558,16 @@
         },
         {
             "name": "xver/micartera-domain",
-            "version": "1.0.9",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sgurdiel/micartera-domain.git",
-                "reference": "baf68c41e60138e1a19ce487ffafe03699ec7d2f"
+                "reference": "5c99c0c25ea949871ee1afc97ab3c39671d0585d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sgurdiel/micartera-domain/zipball/baf68c41e60138e1a19ce487ffafe03699ec7d2f",
-                "reference": "baf68c41e60138e1a19ce487ffafe03699ec7d2f",
+                "url": "https://api.github.com/repos/sgurdiel/micartera-domain/zipball/5c99c0c25ea949871ee1afc97ab3c39671d0585d",
+                "reference": "5c99c0c25ea949871ee1afc97ab3c39671d0585d",
                 "shasum": ""
             },
             "require": {
@@ -8603,9 +8603,9 @@
             "description": "MiCartera Domain",
             "support": {
                 "issues": "https://github.com/sgurdiel/micartera-domain/issues",
-                "source": "https://github.com/sgurdiel/micartera-domain/tree/1.0.9"
+                "source": "https://github.com/sgurdiel/micartera-domain/tree/1.0.11"
             },
-            "time": "2026-08-20T13:19:53+00:00"
+            "time": "2026-08-30T14:40:07+00:00"
         },
         {
             "name": "xver/php-app-core",
